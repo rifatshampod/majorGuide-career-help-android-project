@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         forget = findViewById(R.id.forgotText);
 
         if (mFirebaseAuth.getCurrentUser() != null) {                                   //to check if the user is already logged in, no need to log in again
-            Intent intent = new Intent(MainActivity.this, HomePage.class);
+            Intent intent = new Intent(MainActivity.this, bottomNavigationActivity.class);
             startActivity(intent);
             finish();
         }
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 Toast.makeText(MainActivity.this, "Log in successful", Toast.LENGTH_LONG).show();
-                                Intent homeintent = new Intent(MainActivity.this, HomePage.class);
+                                Intent homeintent = new Intent(MainActivity.this, bottomNavigationActivity.class);
                                 startActivity(homeintent);
                                 finish();
 

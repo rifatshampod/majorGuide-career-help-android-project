@@ -107,4 +107,6 @@
     <string name="menu_send">Send</string>
     <string name="personal_header"><u>Personal Information</u></string>
     <string name="test_header"><u>Test Information</u></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

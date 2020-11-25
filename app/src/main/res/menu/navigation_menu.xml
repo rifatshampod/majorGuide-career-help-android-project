@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_home"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Home"/>
+
+    <item
+        android:id="@+id/menu_career"
+        android:icon="@drawable/ic_baseline_card_travel_24"
+        android:title="Career"/>
+
+    <item
+        android:id="@+id/menu_assessment"
+        android:icon="@drawable/ic_baseline_playlist_add_check_24"
+        android:title="Assessment"/>
+    <item
+        android:id="@+id/menu_tool"
+        android:icon="@drawable/ic_baseline_build_24"
+        android:title="Tool"/>
+
+    <item
+        android:id="@+id/menu_account"
+        android:icon="@drawable/ic_baseline_account_circle_24"
+        android:title="Account"/>
+
+</menu>

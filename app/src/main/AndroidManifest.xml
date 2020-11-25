@@ -9,7 +9,8 @@
         android:roundIcon="@drawable/fav"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ResumeShow"></activity>
+        <activity android:name=".bottomNavigationActivity"></activity>
+        <activity android:name=".ResumeShow" />
         <activity android:name=".Resume" />
         <activity android:name=".ForgetPass" />
         <activity android:name=".Register" />

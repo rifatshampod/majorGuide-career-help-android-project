@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView87"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter Passport number to check test result"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="30dp"/>
+
+    <EditText
+        android:id="@+id/passportSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView87"
+        android:layout_alignParentStart="true"
+        android:ems="10"
+        android:textSize="16sp"
+        android:layout_margin="10dp"
+        android:inputType="textPersonName"
+        android:text=""
+        android:hint="PAssport No"/>
+</RelativeLayout>

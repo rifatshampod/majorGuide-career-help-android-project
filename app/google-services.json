@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "319617602031",
+    "firebase_url": "https://majorguide-edf73.firebaseio.com",
+    "project_id": "majorguide-edf73",
+    "storage_bucket": "majorguide-edf73.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:319617602031:android:47410b11bfd501caf4a61a",
+        "android_client_info": {
+          "package_name": "fsktm.um.edu.mymajor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "319617602031-eu155laieru5or4dra1rpnc7u9rshpev.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBowfnRve8G3qnvoBi-6VXk91KAhOR-fIY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "319617602031-eu155laieru5or4dra1rpnc7u9rshpev.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".TestResultFinalActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView82"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/app_name"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView83"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Test Status"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView85"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/personal_header"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textColor="#2E2E2E"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            >
+
+            <TextView
+                android:id="@+id/textView89"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Full Name : "
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="30dp"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/nameUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sheikh Taki Imam "
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="30dp"
+                android:textSize="16sp"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:id="@+id/textView88"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Passport No : "
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="30dp"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/passportUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ABC1232345 "
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="30dp"
+                android:textSize="16sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:id="@+id/dobText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date of Birth : "
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="30dp"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/dobUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="16 May 1998 "
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="30dp"
+                android:textSize="16sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:id="@+id/emailText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email Address : "
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="30dp"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/emailUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="takiimam@gmail.com "
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="30dp"
+                android:textSize="16sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:id="@+id/phnText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone Number : "
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="30dp"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/phoneUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+601139987556 "
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="30dp"
+                android:textSize="16sp" />
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/textView90"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/test_header"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textColor="#2E2E2E"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            >
+
+            <TextView
+                android:id="@+id/scoreText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Test Score : "
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="30dp"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/testScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="43"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="30dp"
+                android:textSize="16sp"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:id="@+id/statusText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status : "
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="30dp"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/testStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PASSED "
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="30dp"
+                android:textSize="16sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:id="@+id/licenseText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="License Script : "
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="30dp"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/licenseStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ready for Collection "
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="30dp"
+                android:textSize="16sp" />
+        </TableRow>
+
+
+    </TableLayout>
+
+</LinearLayout>

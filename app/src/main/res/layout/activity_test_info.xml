@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".TestInfo">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="match_parent"
+        android:layout_height="197dp"
+        app:srcCompat="@drawable/dark" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Reminder Before Test"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textColor="@color/colorPrimary"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:id="@+id/rule1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text=" 1. Total test time is limited, be careful about the time of the test."
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/rule2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text=" 2. You can choose any option once only, read carefully before selecting."
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/rule3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text=" 3. The submit button will work after one option has been chosen."
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/rule4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text=" 4. The correct answer will be shown immediately, green for correct, red for wrong."
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/rule5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text=" 5. After completing every questions, or if the time runs out, the test will be submitted."
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+
+
+    <Space
+        android:id="@+id/space"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:text="Cancel"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/testStart"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="Take Test"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+</LinearLayout>

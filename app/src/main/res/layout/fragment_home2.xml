@@ -23,8 +23,8 @@
             android:textColor="@color/black"/>
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:src="@color/button"/>
+            android:layout_height="230dp"
+            android:src="@drawable/home_ad"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
             android:background="@drawable/edittext_shadow"
             android:layout_marginRight="20dp"
             android:layout_marginTop="15dp"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="20dp"/>
 
         <GridLayout
             android:layout_width="match_parent"
@@ -58,45 +58,45 @@
                 android:id="@+id/video_btn"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                android:drawableTop="@drawable/video_camera"
+                android:drawableTop="@drawable/home_video"
                 android:text="Video"
                 android:textAlignment="center"
                 android:textSize="16sp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="15dp"
                 />
 
             <TextView
                 android:id="@+id/cv_btn"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                android:drawableTop="@drawable/video_camera"
+                android:drawableTop="@drawable/home_cv"
                 android:text="CV"
                 android:textAlignment="center"
                 android:textSize="16sp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="15dp"/>
 
             <TextView
                 android:id="@+id/jobs_btn"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                android:drawableTop="@drawable/video_camera"
+                android:drawableTop="@drawable/home_job"
                 android:text="Jobs"
                 android:textAlignment="center"
                 android:textSize="16sp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="15dp"/>
 
             <TextView
                 android:id="@+id/major_btn"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                android:drawableTop="@drawable/video_camera"
+                android:drawableTop="@drawable/home_major"
                 android:text="Major"
                 android:textAlignment="center"
                 android:textSize="16sp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginBottom="10dp"
                 />
 
@@ -104,22 +104,22 @@
                 android:id="@+id/books_btn"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                android:drawableTop="@drawable/video_camera"
+                android:drawableTop="@drawable/home_book"
                 android:text="Books"
                 android:textAlignment="center"
                 android:textSize="16sp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginBottom="10dp"/>
 
             <TextView
                 android:id="@+id/agent_btn"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                android:drawableTop="@drawable/video_camera"
+                android:drawableTop="@drawable/home_agent"
                 android:text="Agent"
                 android:textAlignment="center"
                 android:textSize="16sp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginBottom="10dp"
                 />
         </GridLayout>

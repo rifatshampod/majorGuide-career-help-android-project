@@ -77,6 +77,53 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        cvBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), MiddleLayer.class);
+                intent.putExtra("name",2);
+                startActivity(intent);
+            }
+        });
+
+        jobBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), MiddleLayer.class);
+                intent.putExtra("name",3);
+                startActivity(intent);
+            }
+        });
+
+        majorBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), MiddleLayer.class);
+                intent.putExtra("name",4);
+                startActivity(intent);
+            }
+        });
+
+        bookBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), MiddleLayer.class);
+                intent.putExtra("name",5);
+                startActivity(intent);
+            }
+        });
+
+        agentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), MiddleLayer.class);
+                intent.putExtra("name",6);
+                startActivity(intent);
+            }
+        });
+
+
+
 
         return v;
     }

@@ -27,16 +27,26 @@ public class MiddleLayer extends AppCompatActivity {
         {
             int i =(int) b.get("name");
             menuItemNo = i;
+
+            Fragment homeTemp = null;
+
+            switch(menuItemNo){
+                case 1: homeTemp = new VideoFragment();
+                    break;
+                case 2: homeTemp = new CvFragment();
+                    break;
+                case 3: homeTemp = new JobFragment();
+                    break;
+                case 4: homeTemp = new MajorFragment();
+                    break;
+                case 5: homeTemp = new BookFragment();
+                    break;
+                case 6: homeTemp = new AgentFragment();
+                    break;
+            }
+
+            getSupportFragmentManager().beginTransaction().replace(R.id.frameContainer,homeTemp).commit();
         }
-
-        Fragment temp = null;
-
-        switch(menuItemNo){
-            case 1: temp = new VideoFragment();
-                break;
-        }
-
-        getSupportFragmentManager().beginTransaction().replace(R.id.frameContainer,temp).commit();
 
         bnv=findViewById(R.id.bottomNavigation);
 

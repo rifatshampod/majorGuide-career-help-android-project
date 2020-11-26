@@ -3,12 +3,129 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment">
+    tools:context=".HomeFragment"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="20dp">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="this is home fragment" />
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Homepage"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:textColor="@color/black"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@color/button"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="What do you want to look for?"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="15dp"
+            android:hint="Search here"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/edittext_shadow"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"/>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="3"
+            android:rowCount="2"
+            android:alignmentMode="alignMargins"
+            android:padding="10dp"
+            >
+            <TextView
+                android:id="@+id/video_btn"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:drawableTop="@drawable/video_camera"
+                android:text="Video"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                />
+
+            <TextView
+                android:id="@+id/cv_btn"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:drawableTop="@drawable/video_camera"
+                android:text="CV"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:id="@+id/jobs_btn"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:drawableTop="@drawable/video_camera"
+                android:text="Jobs"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:id="@+id/major_btn"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:drawableTop="@drawable/video_camera"
+                android:text="Major"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                />
+
+            <TextView
+                android:id="@+id/books_btn"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:drawableTop="@drawable/video_camera"
+                android:text="Books"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:id="@+id/agent_btn"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:drawableTop="@drawable/video_camera"
+                android:text="Agent"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                />
+        </GridLayout>
+
+
+    </LinearLayout>
+
 
 </FrameLayout>

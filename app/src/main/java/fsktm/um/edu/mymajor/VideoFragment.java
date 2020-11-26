@@ -1,6 +1,5 @@
 package fsktm.um.edu.mymajor;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,12 +7,13 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-
-public class HomeFragment extends Fragment {
-
-    TextView videoBtn, cvBtn, jobBtn, majorBtn, bookBtn, agentBtn;
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link VideoFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class VideoFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +24,7 @@ public class HomeFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public HomeFragment() {
+    public VideoFragment() {
         // Required empty public constructor
     }
 
@@ -34,11 +34,11 @@ public class HomeFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeFragment.
+     * @return A new instance of fragment VideoFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
+    public static VideoFragment newInstance(String param1, String param2) {
+        VideoFragment fragment = new VideoFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,25 +59,6 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_home2, container, false);
-
-        videoBtn = v.findViewById(R.id.video_btn);
-        cvBtn = v.findViewById(R.id.cv_btn);
-        jobBtn = v.findViewById(R.id.jobs_btn);
-        majorBtn = v.findViewById(R.id.major_btn);
-        bookBtn = v.findViewById(R.id.books_btn);
-        agentBtn = v.findViewById(R.id.agent_btn);
-
-        videoBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), MiddleLayer.class);
-                intent.putExtra("name",1);
-                startActivity(intent);
-            }
-        });
-
-
-        return v;
+        return inflater.inflate(R.layout.fragment_video, container, false);
     }
 }

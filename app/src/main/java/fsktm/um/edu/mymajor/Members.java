@@ -12,7 +12,7 @@ public class Members {
     public Members() {
     }
 
-    public Members(String memberId,String name, String email, String phone, String address, String dob, String studylevel, String studyYear, String studyResult, String skill1, String skill2, int level1, int level2) {
+    public Members(String memberId, String name, String email, String phone, String address, String dob, String studylevel, String studyYear, String studyResult, String skill1, String skill2, int level1, int level2) {
         this.memberId = memberId;
         this.name = name;
         this.email = email;

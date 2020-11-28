@@ -51,9 +51,6 @@ public class Resume extends AppCompatActivity {
         level2 = findViewById(R.id.level2);
 
 
-
-
-
         saveResume.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

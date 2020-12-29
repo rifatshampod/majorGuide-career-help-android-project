@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -34,6 +35,10 @@ public class bottomNavigationActivity extends AppCompatActivity {
 
                     case R.id.menu_account: temp = new AccountFragment();
                         break;
+
+                    case R.id.menu_assessment:temp = new AssessmentFragment();
+                        break;
+
                 }
 
                 getSupportFragmentManager().beginTransaction().replace(R.id.frameContainer,temp).commit();

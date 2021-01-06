@@ -1,5 +1,6 @@
 package fsktm.um.edu.mymajor;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +61,23 @@ public class MajorFragment extends Fragment {
         majorSearch = v.findViewById(R.id.major_input);
         searchMajorBtn = v.findViewById(R.id.search_btn_major);
         viewMajorBtn = v.findViewById(R.id.view_all_btn_major);
+
+        searchMajorBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(majorSearch.getText().toString().isEmpty()){
+                    Toast.makeText(getActivity(), "Please enter a search keyword", Toast.LENGTH_SHORT).show();
+                } else {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("search", majorSearch.getText().toString());
+                    bundle.putString("type","major");
+
+                    SearchResult searchResult = new SearchResult();
+                    searchResult.setArguments(bundle);
+                    getFragmentManager().beginTransaction().replace(R.id.frameContainer, searchResult).commit();
+                }
+            }
+        });
 
         return v;
     }

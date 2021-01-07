@@ -30,7 +30,7 @@ public class MajorDetails extends Fragment {
     private TextView txtMajorTitle;
     private TextView txtMajorDescription;
     private TextView txtMajorSkills;
-    private ArrayList<SearchResultModel> list;
+    private ArrayList<MajorSubcategoryModel> list;
     public MajorDetails() {
         // Required empty public constructor
     }
@@ -71,12 +71,13 @@ public class MajorDetails extends Fragment {
         txtMajorDescription = v.findViewById(R.id.txtMajorDescription);
         txtMajorSkills = v.findViewById(R.id.txtMajorSkills);
 
-        list = (ArrayList<SearchResultModel>) getArguments().getSerializable("majors");
+        list = (ArrayList<MajorSubcategoryModel>) getArguments().getSerializable("majors");
         int index = getArguments().getInt("index");
 
-        SearchResultModel searchResultModel = list.get(index);
-        txtMajorTitle.setText(searchResultModel.getTitle());
-        txtMajorDescription.setText(searchResultModel.getDescription());
+        MajorSubcategoryModel majorSubcategoryModel = list.get(index);
+        txtMajorTitle.setText(majorSubcategoryModel.getTitle());
+        txtMajorDescription.setText(majorSubcategoryModel.getDescription());
+        txtMajorSkills.setText(majorSubcategoryModel.getSkills_required());
 
         return v;
 

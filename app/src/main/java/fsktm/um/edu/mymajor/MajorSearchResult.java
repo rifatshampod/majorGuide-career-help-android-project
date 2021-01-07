@@ -1,8 +1,6 @@
 package fsktm.um.edu.mymajor;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +8,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class SearchResult extends Fragment implements SearchResultRecViewAdapter.OnClickListener  {
+public class MajorSearchResult extends Fragment implements SearchResultRecViewAdapter.OnClickListener  {
 
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -34,12 +31,12 @@ public class SearchResult extends Fragment implements SearchResultRecViewAdapter
     private String mParam1;
     private String mParam2;
 
-    public SearchResult() {
+    public MajorSearchResult() {
         // Required empty public constructor
     }
 
-    public static SearchResult newInstance(String param1, String param2) {
-        SearchResult fragment = new SearchResult();
+    public static MajorSearchResult newInstance(String param1, String param2) {
+        MajorSearchResult fragment = new MajorSearchResult();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -50,7 +47,7 @@ public class SearchResult extends Fragment implements SearchResultRecViewAdapter
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference();
     private TextView textSearchTitle;
-    private ArrayList<SearchResultModel> list;
+    private ArrayList<MajorSubcategoryModel> list;
     private RecyclerView searchResultsView;
 
     @Override
@@ -67,7 +64,6 @@ public class SearchResult extends Fragment implements SearchResultRecViewAdapter
                              Bundle savedInstanceState) {
         View v= inflater.inflate(R.layout.activity_search_results, container, false);
 
-        String type = getArguments().getString("type");
         final String search = getArguments().getString("search");
 
         searchResultsView = v.findViewById(R.id.searchResultsView);
@@ -82,26 +78,24 @@ public class SearchResult extends Fragment implements SearchResultRecViewAdapter
         searchResultsView.setLayoutManager(new LinearLayoutManager(v.getContext()));
         searchResultsView.setItemAnimator(new DefaultItemAnimator());
 
-        if(type.equals("major")){
-            myRef.child("majors").child("categories").addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
-                        for (DataSnapshot dataSnapshot2: dataSnapshot1.child("subcategories").getChildren()){
-                            if(dataSnapshot2.child("title").toString().toLowerCase().contains(search.toLowerCase())){
-                                list.add(dataSnapshot2.getValue(SearchResultModel.class));
-                            }
+        myRef.child("majors").child("categories").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
+                    for (DataSnapshot dataSnapshot2: dataSnapshot1.child("subcategories").getChildren()){
+                        if(dataSnapshot2.child("title").toString().toLowerCase().contains(search.toLowerCase())){
+                            list.add(dataSnapshot2.getValue(MajorSubcategoryModel.class));
                         }
                     }
-                    adapter.notifyDataSetChanged();
                 }
+                adapter.notifyDataSetChanged();
+            }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-                    Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
-                }
-            });
-        }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
         return v;
@@ -113,9 +107,6 @@ public class SearchResult extends Fragment implements SearchResultRecViewAdapter
         Bundle bundle = new Bundle();
         bundle.putSerializable("majors", list);
         bundle.putInt("index", position);
-
-
-
 
         MajorDetails majorDetails = new MajorDetails();
         majorDetails.setArguments(bundle);

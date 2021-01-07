@@ -1,6 +1,5 @@
 package fsktm.um.edu.mymajor;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -72,10 +71,18 @@ public class MajorFragment extends Fragment {
                     bundle.putString("search", majorSearch.getText().toString());
                     bundle.putString("type","major");
 
-                    SearchResult searchResult = new SearchResult();
-                    searchResult.setArguments(bundle);
-                    getFragmentManager().beginTransaction().replace(R.id.frameContainer, searchResult).commit();
+                    MajorSearchResult majorSearchResult = new MajorSearchResult();
+                    majorSearchResult.setArguments(bundle);
+                    getFragmentManager().beginTransaction().replace(R.id.frameContainer, majorSearchResult).commit();
                 }
+            }
+        });
+
+        viewMajorBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MajorCategories majorCategories = new MajorCategories();
+                getFragmentManager().beginTransaction().replace(R.id.frameContainer, majorCategories).commit();
             }
         });
 

@@ -20,7 +20,7 @@
         <activity android:name=".SetsActivity" />
         <activity android:name=".Category" />
         <activity android:name=".ScoreActivity" />
-        <activity android:name=".SearchResult" />
+        <activity android:name=".MajorSearchResult" />
         <activity
             android:name=".splash"
             android:theme="@style/Theme.AppCompat.NoActionBar">

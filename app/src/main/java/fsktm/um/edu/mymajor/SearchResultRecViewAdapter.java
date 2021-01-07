@@ -1,10 +1,8 @@
 package fsktm.um.edu.mymajor;
 
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,10 +12,10 @@ import java.util.ArrayList;
 
 public class SearchResultRecViewAdapter extends RecyclerView.Adapter<SearchResultRecViewAdapter.ViewHolder> {
 
-    private ArrayList<SearchResultModel> searchResults = new ArrayList<>();
+    private ArrayList<MajorSubcategoryModel> searchResults = new ArrayList<>();
     private OnClickListener mOnClickListener;
 
-    public SearchResultRecViewAdapter(ArrayList<SearchResultModel> searchResults, OnClickListener onClickListener) {
+    public SearchResultRecViewAdapter(ArrayList<MajorSubcategoryModel> searchResults, OnClickListener onClickListener) {
         this.searchResults = searchResults;
         this.mOnClickListener = onClickListener;
     }
@@ -41,7 +39,7 @@ public class SearchResultRecViewAdapter extends RecyclerView.Adapter<SearchResul
         return searchResults.size();
     }
 
-    public void setSearchResults(ArrayList<SearchResultModel> searchResults) {
+    public void setSearchResults(ArrayList<MajorSubcategoryModel> searchResults) {
         this.searchResults = searchResults;
         notifyDataSetChanged();
     }
@@ -57,7 +55,7 @@ public class SearchResultRecViewAdapter extends RecyclerView.Adapter<SearchResul
             txtSearchResultDescription = itemView.findViewById(R.id.txtSearchResultDescription);
             this.onClickListener = onClickListener;
 
-            itemView.setOnClickListener(this) ;
+            itemView.setOnClickListener(this);
         }
 
         @Override

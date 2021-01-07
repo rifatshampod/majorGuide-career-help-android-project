@@ -1,14 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AgentFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".AgentFragment"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Agent Fragment" />
+        android:layout_height="wrap_content"
+        android:text="Title of the Chosen Agent"
+        android:textSize="30sp"
+        android:layout_marginTop="20sp"
+        android:gravity="center_horizontal"
+        android:id="@+id/txtAgentName"/>
 
-</FrameLayout>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="24dp"
+        android:layout_gravity="center"
+        app:cardCornerRadius="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Description"
+                android:textSize="26sp"
+                android:gravity="center_vertical"
+                android:id="@+id/txtAgentDescriptionTitle"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Description of the Agent"
+                android:textSize="24sp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="20dp"
+                android:id="@+id/txtAgentDescription"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Location"
+                android:textSize="26sp"
+                android:layout_marginTop="30dp"
+                android:gravity="center_vertical"
+                android:id="@+id/txtAgentLocationTitle"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Location of the Agent"
+                android:textSize="24sp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="20dp"
+                android:id="@+id/txtAgentLocation"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Contact"
+                android:textSize="26sp"
+                android:layout_marginTop="30dp"
+                android:gravity="center_vertical"
+                android:id="@+id/txtAgentContactTitle"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Phone Number of the Agent"
+                android:textSize="24sp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="20dp"
+                android:id="@+id/txtAgentPhoneNumber"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Email of the Agent"
+                android:textSize="24sp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp"
+                android:id="@+id/txtAgentEmail"
+                />
+
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

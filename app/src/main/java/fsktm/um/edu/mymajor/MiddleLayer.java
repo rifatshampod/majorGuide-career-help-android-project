@@ -41,7 +41,7 @@ public class MiddleLayer extends AppCompatActivity {
                     break;
                 case 5: homeTemp = new BookFragment();
                     break;
-                case 6: homeTemp = new AgentFragment();
+                case 6: homeTemp = new AgentList();
                     break;
             }
 

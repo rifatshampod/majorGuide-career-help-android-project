@@ -15,6 +15,7 @@ import android.widget.SeekBar;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -44,6 +45,8 @@ public class CvBuildFragment extends Fragment {
 
     DatabaseReference myDatabase;
     FirebaseAuth mFirebaseAuth;
+
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
     public CvBuildFragment() {
         // Required empty public constructor
@@ -122,7 +125,7 @@ public class CvBuildFragment extends Fragment {
                 level2Val = level2.getProgress();
                 Toast.makeText(getActivity(),"Data have been saved.",Toast.LENGTH_LONG).show();
 
-                String id = myDatabase.push().getKey();
+                String id = user.getUid();
 
                 Members members = new Members(String.valueOf(mFirebaseAuth.getCurrentUser()), nameVal, emailVal, phoneVal, addressVal, dobVal, studylevelVal, studyYearVal, studyResultVal, skill1Val, skill2Val,level1Val,level2Val);
 

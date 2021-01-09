@@ -30,8 +30,19 @@ public class SearchResultRecViewAdapter extends RecyclerView.Adapter<SearchResul
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.txtSearchResultTitle.setText(searchResults.get(position).getTitle());
-        holder.txtSearchResultDescription.setText(searchResults.get(position).getDescription());
+        String title = searchResults.get(position).getTitle();
+        String description = searchResults.get(position).getDescription();
+
+        if(title.length() > 25){
+            title = title.substring(0, 25);
+        }
+
+        if(description.length() > 50){
+            description = description.substring(0, 50);
+        }
+
+        holder.txtSearchResultTitle.setText(title);
+        holder.txtSearchResultDescription.setText(description);
     }
 
     @Override

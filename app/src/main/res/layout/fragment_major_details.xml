@@ -2,19 +2,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".AgentFragment"
-    android:orientation="vertical">
+    tools:context=".MajorDetails"
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal">
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Title of the Chosen Agent"
+        android:layout_height="match_parent"
+        android:text="Title of the Chosen Major"
         android:textSize="30sp"
         android:layout_marginTop="20sp"
         android:gravity="center_horizontal"
-        android:id="@+id/txtAgentName"/>
+        android:id="@+id/txtMajorTitle"/>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -37,67 +38,37 @@
                 android:text="Description"
                 android:textSize="26sp"
                 android:gravity="center_vertical"
-                android:id="@+id/txtAgentDescriptionTitle"
+                android:id="@+id/txtMajorDescriptionTitle"
                 />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Description of the Agent"
-                android:textSize="24sp"
+                android:text="Description of the Major"
+                android:textSize="18sp"
                 android:gravity="center_vertical"
                 android:layout_marginTop="20dp"
-                android:id="@+id/txtAgentDescription"
+                android:id="@+id/txtMajorDescription"
                 />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Location"
+                android:text="Skills Required"
                 android:textSize="26sp"
                 android:layout_marginTop="30dp"
                 android:gravity="center_vertical"
-                android:id="@+id/txtAgentLocationTitle"
+                android:id="@+id/txtMajorSkillsTitle"
                 />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Location of the Agent"
-                android:textSize="24sp"
+                android:text="Skills required for the Major"
+                android:textSize="18sp"
                 android:gravity="center_vertical"
                 android:layout_marginTop="20dp"
-                android:id="@+id/txtAgentLocation"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Contact"
-                android:textSize="26sp"
-                android:layout_marginTop="30dp"
-                android:gravity="center_vertical"
-                android:id="@+id/txtAgentContactTitle"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Phone Number of the Agent"
-                android:textSize="24sp"
-                android:gravity="center_vertical"
-                android:layout_marginTop="20dp"
-                android:id="@+id/txtAgentPhoneNumber"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Email of the Agent"
-                android:textSize="24sp"
-                android:gravity="center_vertical"
-                android:layout_marginTop="8dp"
-                android:id="@+id/txtAgentEmail"
+                android:id="@+id/txtMajorSkills"
                 />
 
 

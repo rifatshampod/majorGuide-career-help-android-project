@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +60,31 @@ public class MajorFragment extends Fragment {
         majorSearch = v.findViewById(R.id.major_input);
         searchMajorBtn = v.findViewById(R.id.search_btn_major);
         viewMajorBtn = v.findViewById(R.id.view_all_btn_major);
+
+        searchMajorBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(majorSearch.getText().toString().isEmpty()){
+                    Toast.makeText(getActivity(), "Please enter a search keyword", Toast.LENGTH_SHORT).show();
+                } else {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("search", majorSearch.getText().toString());
+                    bundle.putString("type","major");
+
+                    MajorSearchResult majorSearchResult = new MajorSearchResult();
+                    majorSearchResult.setArguments(bundle);
+                    getFragmentManager().beginTransaction().replace(R.id.frameContainer, majorSearchResult).commit();
+                }
+            }
+        });
+
+        viewMajorBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MajorCategories majorCategories = new MajorCategories();
+                getFragmentManager().beginTransaction().replace(R.id.frameContainer, majorCategories).commit();
+            }
+        });
 
         return v;
     }

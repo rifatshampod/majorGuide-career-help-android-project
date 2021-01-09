@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,10 +25,10 @@ import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link AgentFragment#newInstance} factory method to
+ * Use the {@link MajorCategories#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AgentFragment extends Fragment {
+public class MajorCategories extends Fragment implements MajorCategoryRecViewAdapter.OnClickListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -38,15 +39,7 @@ public class AgentFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference();
-    private TextView txtAgentName;
-    private TextView txtAgentDescription;
-    private TextView txtAgentLocation;
-    private TextView txtAgentPhoneNumber;
-    private TextView txtAgentEmail;
-
-    public AgentFragment() {
+    public MajorCategories() {
         // Required empty public constructor
     }
 
@@ -56,17 +49,23 @@ public class AgentFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment AgentFragment.
+     * @return A new instance of fragment MajorCategories.
      */
     // TODO: Rename and change types and number of parameters
-    public static AgentFragment newInstance(String param1, String param2) {
-        AgentFragment fragment = new AgentFragment();
+    public static MajorCategories newInstance(String param1, String param2) {
+        MajorCategories fragment = new MajorCategories();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference();
+    private ArrayList<MajorCategoryModel> list;
+    private RecyclerView majorCategoriesView;
+    private TextView txtMajorCategoryTitle;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -80,29 +79,36 @@ public class AgentFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_agent, container, false);
 
-        final String agent_name = getArguments().getString("agent_title");
+        View v = inflater.inflate(R.layout.fragment_major_categories, container, false);
 
-        txtAgentName = view.findViewById(R.id.txtAgentName);
-        txtAgentDescription = view.findViewById(R.id.txtAgentDescription);
-        txtAgentLocation = view.findViewById(R.id.txtAgentLocation);
-        txtAgentPhoneNumber = view.findViewById(R.id.txtAgentPhoneNumber);
-        txtAgentEmail = view.findViewById(R.id.txtAgentEmail);
+        majorCategoriesView = v.findViewById(R.id.majorCategoriesView);
+        txtMajorCategoryTitle = v.findViewById(R.id.txtMajorCategoryTitle);
 
-        myRef.child("agents").addListenerForSingleValueEvent(new ValueEventListener() {
+        list = new ArrayList<>();
+
+        final MajorCategoryRecViewAdapter adapter = new MajorCategoryRecViewAdapter(list, this);
+        majorCategoriesView.setAdapter(adapter);
+        majorCategoriesView.setLayoutManager(new LinearLayoutManager(v.getContext()));
+        majorCategoriesView.setItemAnimator(new DefaultItemAnimator());
+
+
+        myRef.child("majors").child("categories").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
-                    if(dataSnapshot1.child("name").getValue().toString().equals(agent_name)){
-                        txtAgentName.setText(dataSnapshot1.child("name").getValue().toString());
-                        txtAgentDescription.setText(dataSnapshot1.child("description").getValue().toString());
-                        txtAgentLocation.setText(dataSnapshot1.child("location").getValue().toString());
-                        txtAgentPhoneNumber.setText(dataSnapshot1.child("phoneNumber").getValue().toString());
-                        txtAgentEmail.setText(dataSnapshot1.child("email").getValue().toString());
+
+                    MajorCategoryModel majorCategoryModel = new MajorCategoryModel();
+                    majorCategoryModel.setTitle(dataSnapshot1.child("title").getValue().toString());
+                    majorCategoryModel.setDescription(dataSnapshot1.child("description").getValue().toString());
+                    ArrayList<MajorSubcategoryModel> tempList = new ArrayList<>();
+                    for (DataSnapshot dataSnapshot2 : dataSnapshot1.child("subcategories").getChildren()){
+                        tempList.add(dataSnapshot2.getValue(MajorSubcategoryModel.class));
                     }
+                    majorCategoryModel.setSubcategories(tempList);
+                    list.add(majorCategoryModel);
                 }
+                adapter.notifyDataSetChanged();
             }
 
             @Override
@@ -111,6 +117,17 @@ public class AgentFragment extends Fragment {
             }
         });
 
-        return view;
+        return v;
+
+    }
+
+    @Override
+    public void onClick(int position) {
+        Bundle bundle = new Bundle();
+        bundle.putString("major_title", list.get(position).getTitle());
+
+        MajorSubcategories majorSubcategories = new MajorSubcategories();
+        majorSubcategories.setArguments(bundle);
+        getFragmentManager().beginTransaction().replace(R.id.frameContainer, majorSubcategories).commit();
     }
 }

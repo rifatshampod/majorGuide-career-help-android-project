@@ -39,6 +39,8 @@ public class bottomNavigationActivity extends AppCompatActivity {
                     case R.id.menu_assessment:temp = new AssessmentFragment();
                         break;
 
+                    case R.id.menu_career:temp = new JobFragment();
+                        break;
                 }
 
                 getSupportFragmentManager().beginTransaction().replace(R.id.frameContainer,temp).commit();

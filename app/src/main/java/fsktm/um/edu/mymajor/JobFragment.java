@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class JobFragment extends Fragment {
@@ -22,7 +23,7 @@ public class JobFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    EditText jobIput, locationInput;
+    EditText jobInput, locationInput;
     Button searchBtn;
 
     public JobFragment() {
@@ -62,9 +63,28 @@ public class JobFragment extends Fragment {
         // Inflate the layout for this fragment
         View v= inflater.inflate(R.layout.fragment_job, container, false);
 
-        jobIput = v.findViewById(R.id.title_input);
+        jobInput = v.findViewById(R.id.title_input);
         locationInput = v.findViewById(R.id.location_input);
         searchBtn = v.findViewById(R.id.search_btn_job);
+
+        searchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(jobInput.getText().toString().isEmpty()){
+                    Toast.makeText(getActivity(), "Please enter the job title", Toast.LENGTH_SHORT).show();
+                } else if(locationInput.getText().toString().isEmpty()){
+                    Toast.makeText(getActivity(), "Please enter a location", Toast.LENGTH_SHORT).show();
+                } else {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("job_title", jobInput.getText().toString());
+                    bundle.putString("job_location", locationInput.getText().toString());
+
+                    JobSearchResult jobSearchResult = new JobSearchResult();
+                    jobSearchResult.setArguments(bundle);
+                    getFragmentManager().beginTransaction().replace(R.id.frameContainer, jobSearchResult).commit();
+                }
+            }
+        });
 
         return v;
     }

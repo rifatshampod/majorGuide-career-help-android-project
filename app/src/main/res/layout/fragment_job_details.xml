@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".JobDetails"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Title of the Chosen Job"
+        android:textSize="30sp"
+        android:layout_marginTop="20sp"
+        android:gravity="center_horizontal"
+        android:id="@+id/txtJobTitle"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="24dp"
+        android:layout_gravity="center"
+        app:cardCornerRadius="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Description"
+                android:textSize="22sp"
+                android:gravity="center_vertical"
+                android:id="@+id/txtJobDescriptionTitle"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Description of the Job"
+                android:textSize="18sp"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="20dp"
+                android:id="@+id/txtJobDescription"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Company Name"
+                android:textSize="22sp"
+                android:gravity="center_vertical"
+                android:id="@+id/txtJobCompanyNameTitle"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Company Name"
+                android:textSize="18sp"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="20dp"
+                android:id="@+id/txtJobCompanyName"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Location"
+                android:textSize="22sp"
+                android:gravity="center_vertical"
+                android:id="@+id/txtJobLocationTitle"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Location"
+                android:textSize="18sp"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="20dp"
+                android:id="@+id/txtJobLocation"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Job Type"
+                android:textSize="22sp"
+                android:gravity="center_vertical"
+                android:id="@+id/txtJobTypeTitle"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Job Type"
+                android:textSize="18sp"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="20dp"
+                android:id="@+id/txtJobType"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Salary"
+                android:textSize="22sp"
+                android:gravity="center_vertical"
+                android:id="@+id/txtJobSalaryTitle"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Salary"
+                android:textSize="18sp"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="20dp"
+                android:id="@+id/txtJobSalary"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Email"
+                android:textSize="22sp"
+                android:gravity="center_vertical"
+                android:id="@+id/txtJobEmailTitle"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Email"
+                android:textSize="18sp"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="20dp"
+                android:id="@+id/txtJobEmail"
+                />
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>

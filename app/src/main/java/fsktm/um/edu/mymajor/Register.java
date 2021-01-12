@@ -17,6 +17,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 
 public class Register extends AppCompatActivity {
@@ -56,7 +58,7 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String email = emailcust.getText().toString().trim();
-                String username = usernamecust.getText().toString().trim();
+                final String username = usernamecust.getText().toString().trim();
                 String user_password= password.getText().toString().trim();
                 String confirm_password= confirmPassword.getText().toString().trim();
 
@@ -69,7 +71,7 @@ public class Register extends AppCompatActivity {
                     return;
                 }
                 if (TextUtils.isEmpty(user_password)){
-                    password.setError("Passwors is required.");
+                    password.setError("Password is required.");
                     return;
                 }
                 if (user_password.length() < 6){
@@ -86,9 +88,23 @@ public class Register extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
 
                             if(task.isSuccessful()){
-                                Toast.makeText(Register.this,"User Added successfully",Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent(Register.this,MainActivity.class);
-                                startActivity(intent);
+                                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                                UserProfileChangeRequest profileChangeRequest = new UserProfileChangeRequest.Builder()
+                                        .setDisplayName(username).build();
+
+                                user.updateProfile(profileChangeRequest).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if(task.isSuccessful()){
+                                            Toast.makeText(Register.this,"User Added successfully",Toast.LENGTH_LONG).show();
+                                            Intent intent = new Intent(Register.this,MainActivity.class);
+                                            startActivity(intent);
+                                        } else {
+                                            Toast.makeText(Register.this,"Error registering user name",Toast.LENGTH_LONG).show();
+                                        }
+                                    }
+                                });
                             }
                             else {
                                 Toast.makeText(Register.this,"Error Registering new user",Toast.LENGTH_LONG).show();

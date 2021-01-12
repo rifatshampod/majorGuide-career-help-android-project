@@ -1,5 +1,6 @@
 package fsktm.um.edu.mymajor;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +29,10 @@ public class AccountFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private TextView txtUserName;
+    private TextView txtUserEmail;
+    private Button logout;
 
     public AccountFragment() {
         // Required empty public constructor
@@ -58,7 +68,33 @@ public class AccountFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_account, container, false);
+        View view = inflater.inflate(R.layout.fragment_account, container, false);
+
+        txtUserName = view.findViewById(R.id.txtUserName);
+        txtUserEmail = view.findViewById(R.id.txtUserEmail);
+        logout = view.findViewById(R.id.logout);
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if(user != null){
+            txtUserName.setText(user.getDisplayName());
+            txtUserEmail.setText(user.getEmail());
+        } else {
+            txtUserName.setText("N/A");
+            txtUserEmail.setText("N/A");
+        }
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+
+        return view;
     }
 }

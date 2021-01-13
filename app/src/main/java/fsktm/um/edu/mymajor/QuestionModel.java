@@ -2,21 +2,19 @@ package fsktm.um.edu.mymajor;
 
 public class QuestionModel {
 
-    private String question, optionA, optionB, optionC,optionD, correctAns;
-    private int setNo;
+    private String question, optionA, optionB, optionC, optionD, optionE;
 
     public QuestionModel(){
 
     }
 
-    public QuestionModel(String question, String optionA, String optionB, String optionC, String optionD, String correctAns) {
-        this.setNo=setNo;
+    public QuestionModel(String question, String optionA, String optionB, String optionC, String optionD, String optionE) {
         this.question = question;
         this.optionA = optionA;
         this.optionB = optionB;
         this.optionC = optionC;
         this.optionD = optionD;
-        this.correctAns = correctAns;
+        this.optionE = optionE;
     }
 
     public String getQuestion() {
@@ -59,19 +57,11 @@ public class QuestionModel {
         this.optionD = optionD;
     }
 
-    public String getCorrectAns() {
-        return correctAns;
+    public String getOptionE() {
+        return optionE;
     }
 
-    public int getSetNo() {
-        return setNo;
-    }
-
-    public void setSetNo(int setNo) {
-        this.setNo = setNo;
-    }
-
-    public void setCorrectAns(String correctAns) {
-        this.correctAns = correctAns;
+    public void setOptionE(String optionE) {
+        this.optionE = optionE;
     }
 }

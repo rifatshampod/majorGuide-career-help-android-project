@@ -122,6 +122,16 @@
             android:background="@drawable/rounded_corners"
             android:backgroundTint="#989898"
             android:text="Button" />
+
+        <Button
+            android:id="@+id/button5"
+            android:textColor="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/rounded_corners"
+            android:backgroundTint="#989898"
+            android:text="Button" />
     </LinearLayout>
 
     <androidx.appcompat.widget.Toolbar

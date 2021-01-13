@@ -34,8 +34,15 @@ public class AgentListRecViewAdapter extends RecyclerView.Adapter<AgentListRecVi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.txtAgentListItemTitle.setText(list.get(position).getName());
-        holder.txtAgentListItemDescription.setText(list.get(position).getPhoneNumber());
+        String title = list.get(position).getName();
+        String phoneNumber = list.get(position).getPhoneNumber();
+
+        if(title.length() > 25){
+            title = title.substring(0, 25);
+        }
+
+        holder.txtAgentListItemTitle.setText(title);
+        holder.txtAgentListItemDescription.setText(phoneNumber);
     }
 
     @Override

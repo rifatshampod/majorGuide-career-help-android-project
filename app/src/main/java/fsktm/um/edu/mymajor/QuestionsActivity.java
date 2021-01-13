@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class QuestionsActivity extends AppCompatActivity {
@@ -39,6 +41,7 @@ public class QuestionsActivity extends AppCompatActivity {
     private int score = 0;
     private String category;
     private int setNo;
+    private ArrayList<String> userAnswers = new ArrayList<>();
 
     private Dialog loadingDialog;
 
@@ -92,7 +95,7 @@ public class QuestionsActivity extends AppCompatActivity {
         list = new ArrayList<>();
 
         loadingDialog.show();
-        myRef.child("SETS").child(category).child("questions").orderByChild("setNo").equalTo(setNo).addListenerForSingleValueEvent(new ValueEventListener() {
+        myRef.child("SETS").child(category).child("questions").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot snapshot: dataSnapshot.getChildren()){
@@ -101,8 +104,9 @@ public class QuestionsActivity extends AppCompatActivity {
                 if(list.size()>0){
 
 
-                    for(int i=0;i<4;i++){
+                    for(int i=0;i<5;i++){
                         optionContainer.getChildAt(i).setOnClickListener(new View.OnClickListener() {
+                            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
                             @Override
                             public void onClick(View view) {
                                 checkAnswer((Button) view);
@@ -121,8 +125,7 @@ public class QuestionsActivity extends AppCompatActivity {
                             position++;
                             if(position == list.size()){
                                 Intent scoreIntent = new Intent(QuestionsActivity.this,ScoreActivity.class);
-                                scoreIntent.putExtra("score", score);
-                                scoreIntent.putExtra("total", list.size());
+                                scoreIntent.putExtra("user_answers", userAnswers);
                                 startActivity(scoreIntent);
                                 finish();
                                 return;
@@ -155,7 +158,7 @@ public class QuestionsActivity extends AppCompatActivity {
                 .setInterpolator(new DecelerateInterpolator()).setListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animator) {
-                if(value==0 && count<4){
+                if(value==0 && count<5){
                     String option="";
                     if(count==0){
                         option = list.get(position).getOptionA();
@@ -168,6 +171,8 @@ public class QuestionsActivity extends AppCompatActivity {
                     }else if(count==3){
                         option = list.get(position).getOptionD();
 
+                    }else if(count==4){
+                        option = list.get(position).getOptionE();
                     }
                     playAnim(optionContainer.getChildAt(count),0, option);
                     count++;
@@ -205,30 +210,45 @@ public class QuestionsActivity extends AppCompatActivity {
         });
     }
 
-    private void checkAnswer(Button selecedOption){
-        enableOption(false);
-        nextBtn.setEnabled(true);
-        nextBtn.setAlpha(1);
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    private void checkAnswer(Button selectedOption){
+        selectedOption.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#4CAF50")));
 
-        if(selecedOption.getText().toString().equals(list.get(position).getCorrectAns())){
-            //correct
-            score++;
-            selecedOption.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#4CAF50")));
+        userAnswers.add(selectedOption.getText().toString());
 
+//        nextBtn.setEnabled(false);
+//        nextBtn.setAlpha(0.7f);
+        enableOption(true);
+        position++;
+        if(position == list.size()){
+            Intent scoreIntent = new Intent(QuestionsActivity.this,ScoreActivity.class);
+            scoreIntent.putExtra("user_answers", userAnswers);
+            startActivity(scoreIntent);
+            finish();
+            return;
         }
-        else{
-            //incorrect
-            selecedOption.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FF0000")));
-            Button correctOption = (Button) optionContainer.findViewWithTag(list.get(position).getCorrectAns());
-            correctOption.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#4CAF50")));
-
-        }
+        count=0;
+        playAnim(question,0, list.get(position).getQuestion());
+//        if(selectedOption.getText().toString().equals(list.get(position).getCorrectAns())){
+//            //correct
+//            score++;
+//            selectedOption.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#4CAF50")));
+//
+//        }
+//        else{
+//            //incorrect
+//            selectedOption.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FF0000")));
+//            Button correctOption = (Button) optionContainer.findViewWithTag(list.get(position).getCorrectAns());
+//            correctOption.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#4CAF50")));
+//
+//        }
 
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void enableOption(boolean enable){
-        for(int i=0;i<4;i++) {
+        for(int i=0;i<5;i++) {
             optionContainer.getChildAt(i).setEnabled(enable);
             if(enable){
                 optionContainer.getChildAt(i).setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#989898")));

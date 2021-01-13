@@ -33,8 +33,19 @@ public class BookSearchRecViewAdapter extends  RecyclerView.Adapter<BookSearchRe
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.txtBookListTitle.setText(list.get(position).getTitle());
-        holder.txtBookListDescription.setText(list.get(position).getDescription());
+        String title = list.get(position).getTitle();
+        String description = list.get(position).getDescription();
+
+        if(title.length() > 25){
+            title = title.substring(0, 25);
+        }
+
+        if(description.length() > 50){
+            description = description.substring(0, 50);
+        }
+
+        holder.txtBookListTitle.setText(title);
+        holder.txtBookListDescription.setText(description);
     }
 
     @Override

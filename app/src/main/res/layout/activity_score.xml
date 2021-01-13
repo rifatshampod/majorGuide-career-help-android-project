@@ -24,26 +24,6 @@
             android:textAlignment="center"
             android:text="@string/app_name" />
 
-        <TextView
-            android:id="@+id/textView80"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="24dp"
-            android:textSize="38sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/white"
-            android:textAlignment="center"
-            android:text="Score" />
-
-        <TextView
-            android:id="@+id/scored"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="38sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/white"
-            android:textAlignment="center"
-            android:text="5" />
 
         <TextView
             android:id="@+id/total"
@@ -54,7 +34,7 @@
             android:textStyle="bold"
             android:textColor="@android:color/white"
             android:textAlignment="center"
-            android:text="Out of 10" />
+            android:text="Total" />
     </LinearLayout>
 
     <FrameLayout

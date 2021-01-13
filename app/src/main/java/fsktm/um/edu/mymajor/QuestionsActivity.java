@@ -7,6 +7,7 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
@@ -42,6 +43,8 @@ public class QuestionsActivity extends AppCompatActivity {
     private String category;
     private int setNo;
     private ArrayList<String> userAnswers = new ArrayList<>();
+    private AssessmentChecker assessmentChecker = new AssessmentChecker();
+    private ArrayList<MajorSubcategoryModel> userMajors = new ArrayList<>();
 
     private Dialog loadingDialog;
 
@@ -50,9 +53,6 @@ public class QuestionsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions);
-
-       // Toolbar toolbar = findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
 
         question = findViewById(R.id.question);
         noIndicator = findViewById(R.id.numberIndicator);
@@ -102,9 +102,7 @@ public class QuestionsActivity extends AppCompatActivity {
                     list.add(snapshot.getValue(QuestionModel.class));
                 }
                 if(list.size()>0){
-
-
-                    for(int i=0;i<5;i++){
+                    for(int i=0;i<3;i++){
                         optionContainer.getChildAt(i).setOnClickListener(new View.OnClickListener() {
                             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
                             @Override
@@ -116,24 +114,25 @@ public class QuestionsActivity extends AppCompatActivity {
 
                     playAnim(question,0,list.get(position).getQuestion());
 
-                    nextBtn.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            nextBtn.setEnabled(false);
-                            nextBtn.setAlpha(0.7f);
-                            enableOption(true);
-                            position++;
-                            if(position == list.size()){
-                                Intent scoreIntent = new Intent(QuestionsActivity.this,ScoreActivity.class);
-                                scoreIntent.putExtra("user_answers", userAnswers);
-                                startActivity(scoreIntent);
-                                finish();
-                                return;
-                            }
-                            count=0;
-                            playAnim(question,0, list.get(position).getQuestion());
-                        }
-                    });
+//                    nextBtn.setOnClickListener(new View.OnClickListener() {
+//                        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+//                        @Override
+//                        public void onClick(View view) {
+//                            nextBtn.setEnabled(false);
+//                            nextBtn.setAlpha(0.7f);
+//                            enableOption(true);
+//                            position++;
+//                            if(position == list.size()){
+//                                Intent scoreIntent = new Intent(QuestionsActivity.this,ScoreActivity.class);
+//                                scoreIntent.putExtra("user_answers", userAnswers);
+//                                startActivity(scoreIntent);
+//                                finish();
+//                                return;
+//                            }
+//                            count=0;
+//                            playAnim(question,0, list.get(position).getQuestion());
+//                        }
+//                    });
                 }
                 else {
                     finish();
@@ -158,21 +157,14 @@ public class QuestionsActivity extends AppCompatActivity {
                 .setInterpolator(new DecelerateInterpolator()).setListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animator) {
-                if(value==0 && count<5){
+                if(value==0 && count<3){
                     String option="";
                     if(count==0){
                         option = list.get(position).getOptionA();
                     }else if(count==1){
                         option = list.get(position).getOptionB();
-
                     }else if(count==2){
                         option = list.get(position).getOptionC();
-
-                    }else if(count==3){
-                        option = list.get(position).getOptionD();
-
-                    }else if(count==4){
-                        option = list.get(position).getOptionE();
                     }
                     playAnim(optionContainer.getChildAt(count),0, option);
                     count++;
@@ -212,43 +204,51 @@ public class QuestionsActivity extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void checkAnswer(Button selectedOption){
+        Log.d("Here: button works: ", Integer.toString(selectedOption.getId()));
         selectedOption.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#4CAF50")));
 
         userAnswers.add(selectedOption.getText().toString());
 
-//        nextBtn.setEnabled(false);
-//        nextBtn.setAlpha(0.7f);
+        nextBtn.setEnabled(false);
+        nextBtn.setAlpha(0.7f);
+
+        int buttonId = 1;
+        if(selectedOption.getId() == R.id.button){
+            buttonId = 0;
+        }
+
+        if(selectedOption.getId() == R.id.button2){
+            buttonId = 1;
+        }
+
+        if(selectedOption.getId() == R.id.button3){
+            buttonId = 2;
+        }
+
+        userMajors = assessmentChecker.checkAnswer(position, userMajors, buttonId);
+
         enableOption(true);
         position++;
         if(position == list.size()){
             Intent scoreIntent = new Intent(QuestionsActivity.this,ScoreActivity.class);
-            scoreIntent.putExtra("user_answers", userAnswers);
+            ArrayList<String> userMajorsTitles = new ArrayList<>();
+            for (int i=0; i<userMajors.size(); i++){
+                userMajorsTitles.add(userMajors.get(i).getTitle());
+            }
+
+            scoreIntent.putExtra("user_answers", userMajorsTitles);
             startActivity(scoreIntent);
             finish();
             return;
         }
         count=0;
         playAnim(question,0, list.get(position).getQuestion());
-//        if(selectedOption.getText().toString().equals(list.get(position).getCorrectAns())){
-//            //correct
-//            score++;
-//            selectedOption.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#4CAF50")));
-//
-//        }
-//        else{
-//            //incorrect
-//            selectedOption.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FF0000")));
-//            Button correctOption = (Button) optionContainer.findViewWithTag(list.get(position).getCorrectAns());
-//            correctOption.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#4CAF50")));
-//
-//        }
-
     }
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void enableOption(boolean enable){
-        for(int i=0;i<5;i++) {
+        for(int i=0;i<3;i++) {
             optionContainer.getChildAt(i).setEnabled(enable);
             if(enable){
                 optionContainer.getChildAt(i).setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#989898")));

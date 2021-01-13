@@ -1,5 +1,6 @@
 package fsktm.um.edu.mymajor;
 
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -29,7 +30,7 @@ public class AssessmentChecker {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+                Log.d("Question 1", "Database Error!");
             }
         });
 
@@ -42,7 +43,7 @@ public class AssessmentChecker {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+                Log.d("Question 2", "Database Error!");
             }
         });
 
@@ -55,7 +56,7 @@ public class AssessmentChecker {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+                Log.d("Question 3", "Database Error!");
             }
         });
 
@@ -68,7 +69,7 @@ public class AssessmentChecker {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+                Log.d("Question 4", "Database Error!");
             }
         });
 
@@ -81,7 +82,7 @@ public class AssessmentChecker {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+                Log.d("Question 5", "Database Error!");
             }
         });
 
@@ -94,7 +95,7 @@ public class AssessmentChecker {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+                Log.d("Question 6", "Database Error!");
             }
         });
 
@@ -107,7 +108,7 @@ public class AssessmentChecker {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+                Log.d("Question 7", "Database Error!");
             }
         });
 
@@ -120,7 +121,7 @@ public class AssessmentChecker {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+                Log.d("Question 8", "Database Error!");
             }
         });
 
@@ -133,7 +134,7 @@ public class AssessmentChecker {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+                Log.d("Question 9", "Database Error!");
             }
         });
 
@@ -146,7 +147,7 @@ public class AssessmentChecker {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+                Log.d("Question 10", "Database Error!");
             }
         });
 
@@ -159,7 +160,7 @@ public class AssessmentChecker {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+                Log.d("Question 11", "Database Error!");
             }
         });
 
@@ -172,7 +173,7 @@ public class AssessmentChecker {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+                Log.d("Question 12", "Database Error!");
             }
         });
 
@@ -185,7 +186,7 @@ public class AssessmentChecker {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+                Log.d("Question 13", "Database Error!");
             }
         });
 
@@ -198,7 +199,7 @@ public class AssessmentChecker {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+                Log.d("Question 14", "Database Error!");
             }
         });
 
@@ -211,7 +212,7 @@ public class AssessmentChecker {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+                Log.d("Question 15", "Database Error!");
             }
         });
 
@@ -224,7 +225,7 @@ public class AssessmentChecker {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+                Log.d("Question 16", "Database Error!");
             }
         });
 
@@ -237,7 +238,7 @@ public class AssessmentChecker {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+                Log.d("Question 17", "Database Error!");
             }
         });
 
@@ -250,7 +251,7 @@ public class AssessmentChecker {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+                Log.d("Question 18", "Database Error!");
             }
         });
 
@@ -263,7 +264,7 @@ public class AssessmentChecker {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+                Log.d("Question 19", "Database Error!");
             }
         });
 
@@ -276,7 +277,7 @@ public class AssessmentChecker {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+                Log.d("Question 20", "Database Error!");
             }
         });
 
@@ -289,7 +290,7 @@ public class AssessmentChecker {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+                Log.d("Question 21", "Database Error!");
             }
         });
 
@@ -302,7 +303,7 @@ public class AssessmentChecker {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+                Log.d("Question 22", "Database Error!");
             }
         });
 
@@ -315,7 +316,7 @@ public class AssessmentChecker {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+                Log.d("Question 23", "Database Error!");
             }
         });
 
@@ -328,7 +329,7 @@ public class AssessmentChecker {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+                Log.d("Question 24", "Database Error!");
             }
         });
 
@@ -341,7 +342,7 @@ public class AssessmentChecker {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+                Log.d("Question 25", "Database Error!");
             }
         });
 
@@ -354,7 +355,7 @@ public class AssessmentChecker {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+                Log.d("Question 26", "Database Error!");
             }
         });
 
@@ -367,7 +368,7 @@ public class AssessmentChecker {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+                Log.d("Question 27", "Database Error!");
             }
         });
 
@@ -380,7 +381,7 @@ public class AssessmentChecker {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+                Log.d("Question 28", "Database Error!");
             }
         });
 
@@ -393,7 +394,7 @@ public class AssessmentChecker {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+                Log.d("Question 29", "Database Error!");
             }
         });
 
@@ -406,7 +407,7 @@ public class AssessmentChecker {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+                Log.d("Question 30", "Database Error!");
             }
         });
 
@@ -419,13 +420,25 @@ public class AssessmentChecker {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+                Log.d("Question 31", "Database Error!");
             }
         });
-        
-
     }
 
 
+    public ArrayList<MajorSubcategoryModel> checkAnswer(int question, ArrayList<MajorSubcategoryModel> list, int answer){
+        MajorSubcategoryModel majorSubcategoryModel = questionMajors.get(question);
+        if(answer == 0){
+            if (!list.contains(majorSubcategoryModel)){
+                list.remove(majorSubcategoryModel);
+            }
+        } else if(answer == 2) {
+            if (!list.contains(majorSubcategoryModel)){
+                list.add(majorSubcategoryModel);
+            }
+        }
+
+        return list;
+    }
 
 }

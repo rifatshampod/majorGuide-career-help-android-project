@@ -2,6 +2,7 @@ package fsktm.um.edu.mymajor;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -9,7 +10,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,8 +32,19 @@ public class BookFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference();
     EditText bookTitle;
     Button searchBtn, viewBtn;
+    TextView bookNumber1;
+    TextView bookNumber2;
+    TextView bookNumber3;
+    ImageView bookImage1;
+    ImageView bookImage2;
+    ImageView bookImage3;
+
+
+    ArrayList<BookModel> list = new ArrayList<>();
 
     private String mParam1;
     private String mParam2;
@@ -60,6 +82,106 @@ public class BookFragment extends Fragment {
         viewBtn = v.findViewById(R.id.view_btn_books);
         bookTitle = v.findViewById(R.id.title_input_books);
 
+        bookNumber1 = v.findViewById(R.id.bookNumber1);
+        bookNumber2 = v.findViewById(R.id.bookNumber2);
+        bookNumber3 = v.findViewById(R.id.bookNumber3);
+
+        bookImage1 = v.findViewById(R.id.bookImage1);
+        bookImage2 = v.findViewById(R.id.bookImage2);
+        bookImage3 = v.findViewById(R.id.bookImage3);
+
+        myRef.child("books").child("0").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String title = dataSnapshot.child("title").getValue().toString();
+                if(title.length() > 15){
+                    title = title.substring(0, 15);
+                }
+                bookNumber1.setText(title);
+                list.add(dataSnapshot.getValue(BookModel.class));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        myRef.child("books").child("3").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String title = dataSnapshot.child("title").getValue().toString();
+                if(title.length() > 15){
+                    title = title.substring(0, 15);
+                }
+                bookNumber2.setText(title);
+                list.add(dataSnapshot.getValue(BookModel.class));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        myRef.child("books").child("4").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String title = dataSnapshot.child("title").getValue().toString();
+                if(title.length() > 15){
+                    title = title.substring(0, 15);
+                }
+
+                bookNumber3.setText(title);
+                list.add(dataSnapshot.getValue(BookModel.class));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(getActivity(), "Database error!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        bookImage1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("books", list);
+                bundle.putInt("index", 0);
+
+                BookDetails bookDetails = new BookDetails();
+                bookDetails.setArguments(bundle);
+                getFragmentManager().beginTransaction().replace(R.id.frameContainer, bookDetails).commit();
+            }
+        });
+
+        bookImage2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("books", list);
+                bundle.putInt("index", 1);
+
+                BookDetails bookDetails = new BookDetails();
+                bookDetails.setArguments(bundle);
+                getFragmentManager().beginTransaction().replace(R.id.frameContainer, bookDetails).commit();
+            }
+        });
+
+        bookImage3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("books", list);
+                bundle.putInt("index", 2);
+
+                BookDetails bookDetails = new BookDetails();
+                bookDetails.setArguments(bundle);
+                getFragmentManager().beginTransaction().replace(R.id.frameContainer, bookDetails).commit();
+            }
+        });
+
+
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,6 +205,8 @@ public class BookFragment extends Fragment {
                 getFragmentManager().beginTransaction().replace(R.id.frameContainer, bookList).commit();
             }
         });
+
+
 
         return v;
     }

@@ -79,5 +79,16 @@
         android:backgroundTint="@color/button"
         android:text="Logout" />
 
+    <Button
+        android:id="@+id/deleteAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginRight="24dp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/design_default_color_error"
+        android:text="Delete Account" />
+
 
 </LinearLayout>

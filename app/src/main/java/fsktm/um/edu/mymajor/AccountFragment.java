@@ -3,6 +3,7 @@ package fsktm.um.edu.mymajor;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -10,7 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -33,6 +37,8 @@ public class AccountFragment extends Fragment {
     private TextView txtUserName;
     private TextView txtUserEmail;
     private Button logout;
+    private Button deleteAccount;
+    private FirebaseUser user;
 
     public AccountFragment() {
         // Required empty public constructor
@@ -73,8 +79,10 @@ public class AccountFragment extends Fragment {
         txtUserName = view.findViewById(R.id.txtUserName);
         txtUserEmail = view.findViewById(R.id.txtUserEmail);
         logout = view.findViewById(R.id.logout);
+        deleteAccount = view.findViewById(R.id.deleteAccount);
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        user = FirebaseAuth.getInstance().getCurrentUser();
+
         if(user != null){
             txtUserName.setText(user.getDisplayName());
             txtUserEmail.setText(user.getEmail());
@@ -93,6 +101,21 @@ public class AccountFragment extends Fragment {
         });
 
 
+        deleteAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                user.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(getActivity(), "Successfully deleted account", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getContext(), MainActivity.class);
+                            startActivity(intent);
+                        }
+                    }
+                });
+            }
+        });
 
 
         return view;

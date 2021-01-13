@@ -83,28 +83,85 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:src="@drawable/home_ad"
-            android:layout_weight="1"
-            android:layout_margin="5dp"
-            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="20dp"
+            android:layout_weight="1">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:src="@drawable/home_ad"
-            android:layout_weight="1"
-            android:layout_margin="5dp"
-            />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:src="@mipmap/code_complete_book"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:id="@+id/bookImage1"
+                android:adjustViewBounds="true"
+                />
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:src="@drawable/home_ad"
-            android:layout_weight="1"
-            android:layout_margin="5dp"
-            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Book Number 1"
+                android:id="@+id/bookNumber1"
+                android:textSize="14dp"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="20sp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:src="@mipmap/mechanics_fluids_book"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:id="@+id/bookImage2"
+                android:adjustViewBounds="true"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Book Number 2"
+                android:id="@+id/bookNumber2"
+                android:textSize="14dp"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="20dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:src="@mipmap/law_student"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:id="@+id/bookImage3"
+                android:adjustViewBounds="true"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Book Number 3"
+                android:id="@+id/bookNumber3"
+                android:textSize="14dp"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

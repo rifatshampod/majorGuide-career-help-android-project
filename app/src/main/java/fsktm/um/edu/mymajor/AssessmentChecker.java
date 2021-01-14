@@ -11,6 +11,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class AssessmentChecker {
@@ -429,12 +430,49 @@ public class AssessmentChecker {
     public ArrayList<MajorSubcategoryModel> checkAnswer(int question, ArrayList<MajorSubcategoryModel> list, int answer){
         MajorSubcategoryModel majorSubcategoryModel = questionMajors.get(question);
         if(answer == 0){
-            if (!list.contains(majorSubcategoryModel)){
+            if (list.contains(majorSubcategoryModel)){
                 list.remove(majorSubcategoryModel);
             }
         } else if(answer == 2) {
             if (!list.contains(majorSubcategoryModel)){
                 list.add(majorSubcategoryModel);
+            }
+        }
+
+        return list;
+    }
+
+    public ArrayList<QuestionModel> generateSetB(ArrayList<MajorSubcategoryModel> userMajors){
+        ArrayList<QuestionModel> setB = new ArrayList<>();
+        for (int i=0; i<userMajors.size(); i++){
+            QuestionModel questionModel = new QuestionModel();
+            questionModel.setQuestion("Are you interested in ".concat(userMajors.get(i).getTitle()));
+            questionModel.setOptionA("Not Interested");
+            questionModel.setOptionB("Not Sure");
+            questionModel.setOptionC("Interested");
+
+            setB.add(questionModel);
+        }
+
+        return setB;
+    }
+
+    public ArrayList<MajorSubcategoryModel> checkAnswerSetB(String question, ArrayList<MajorSubcategoryModel> list, int answer){
+        String majorTitle = question.substring(22);
+        Log.d("Major title: ", majorTitle);
+
+        for (int i=0; i<questionMajors.size(); i++){
+            if(questionMajors.get(i).getTitle().equals(majorTitle)){
+                if(answer == 0){
+                    if (list.contains(questionMajors.get(i))){
+                        list.remove(questionMajors.get(i));
+                    }
+                } else if(answer == 2) {
+                    if (!list.contains(questionMajors.get(i))){
+                        list.add(questionMajors.get(i));
+                    }
+                }
+                break;
             }
         }
 

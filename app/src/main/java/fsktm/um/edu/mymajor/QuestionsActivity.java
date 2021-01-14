@@ -42,6 +42,7 @@ public class QuestionsActivity extends AppCompatActivity {
     private int score = 0;
     private String category;
     private int setNo;
+    private boolean isSetB = false;
     private ArrayList<String> userAnswers = new ArrayList<>();
     private AssessmentChecker assessmentChecker = new AssessmentChecker();
     private ArrayList<MajorSubcategoryModel> userMajors = new ArrayList<>();
@@ -204,7 +205,6 @@ public class QuestionsActivity extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void checkAnswer(Button selectedOption){
-        Log.d("Here: button works: ", Integer.toString(selectedOption.getId()));
         selectedOption.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#4CAF50")));
 
         userAnswers.add(selectedOption.getText().toString());
@@ -225,21 +225,33 @@ public class QuestionsActivity extends AppCompatActivity {
             buttonId = 2;
         }
 
-        userMajors = assessmentChecker.checkAnswer(position, userMajors, buttonId);
+        if (isSetB){
+            userMajors = assessmentChecker.checkAnswerSetB(list.get(position).getQuestion(), userMajors, buttonId);
+        } else {
+            userMajors = assessmentChecker.checkAnswer(position, userMajors, buttonId);
+        }
 
         enableOption(true);
         position++;
         if(position == list.size()){
-            Intent scoreIntent = new Intent(QuestionsActivity.this,ScoreActivity.class);
-            ArrayList<String> userMajorsTitles = new ArrayList<>();
-            for (int i=0; i<userMajors.size(); i++){
-                userMajorsTitles.add(userMajors.get(i).getTitle());
+            if (isSetB || userMajors.size()<3){
+                Intent scoreIntent = new Intent(QuestionsActivity.this,ScoreActivity.class);
+                ArrayList<String> userMajorsTitles = new ArrayList<>();
+                for (int i=0; i<userMajors.size(); i++){
+                    userMajorsTitles.add(userMajors.get(i).getTitle());
+                }
+
+                scoreIntent.putExtra("user_answers", userMajorsTitles);
+                startActivity(scoreIntent);
+                finish();
+                return;
             }
 
-            scoreIntent.putExtra("user_answers", userMajorsTitles);
-            startActivity(scoreIntent);
-            finish();
-            return;
+            for (int i=0; i<userMajors.size(); i++){
+                Log.d("Before Set B " + i + ": ", userMajors.get(i).getTitle());
+            }
+            isSetB = true;
+            list.addAll(assessmentChecker.generateSetB(userMajors));
         }
         count=0;
         playAnim(question,0, list.get(position).getQuestion());

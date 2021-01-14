@@ -2,11 +2,16 @@ package fsktm.um.edu.mymajor;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +64,33 @@ public class VideoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_video, container, false);
+
+
+        View v= inflater.inflate(R.layout.fragment_video, container, false);
+
+        //to get video data from Firebase ------------------------------------- See this
+        // if you want to add video data from firebase, create a listview, and call the video data in
+        //the listview
+
+        // save all the video text and video id in firebase first
+        // than from these lines below, call the video id and video text in the listview
+
+
+       /*         uncomment below first ---------------------------------
+        YouTubePlayerView youTubePlayerView = v.findViewById(R.id.youtube_player_view); //only one is enough
+        getLifecycle().addObserver(youTubePlayerView);
+
+
+        youTubePlayerView.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
+            @Override
+            public void onReady(@NonNull YouTubePlayer youTubePlayer) {
+                String videoId = "S0Q4gqBUs7c";
+                youTubePlayer.loadVideo(videoId, 0);
+            }
+        });  */
+
+
+
+        return v;
     }
 }

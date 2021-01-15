@@ -29,14 +29,14 @@
                     android:id="@+id/youtube_player_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:videoId="XLIaJEfbNI0"
+                    app:videoId="LzpCldPiT0c"
                     app:autoPlay="false"
                     app:showFullScreenButton="true" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="HR Analytics and How to Get Started"
+                    android:text="Day In The Life Of A Doctor | My FIRST Hospital Vlog!"
                     android:textSize="16sp"
                     android:paddingTop="10dp"
                     android:paddingLeft="10dp"
@@ -60,14 +60,14 @@
                     android:id="@+id/youtube_player_view2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:videoId="XLIaJEfbNI0"
+                    app:videoId="fMTLYRedBwo"
                     app:autoPlay="false"
                     app:showFullScreenButton="true" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="HR Analytics and How to Get Started"
+                    android:text="A Day in the Life of a Lawyer - What Does a Lawyer Actually Do?"
                     android:textSize="16sp"
                     android:paddingTop="10dp"
                     android:paddingLeft="10dp"
@@ -89,14 +89,14 @@
                     android:id="@+id/youtube_player_view3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:videoId="XLIaJEfbNI0"
+                    app:videoId="1RwrSEMei8g"
                     app:autoPlay="false"
                     app:showFullScreenButton="true" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="HR Analytics and How to Get Started"
+                    android:text="Day in the life of a Nurse | 16 hour shift"
                     android:textSize="16sp"
                     android:paddingTop="10dp"
                     android:paddingLeft="10dp"
@@ -118,14 +118,14 @@
                     android:id="@+id/youtube_player_view4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:videoId="XLIaJEfbNI0"
+                    app:videoId="lcw-MkO38sA"
                     app:autoPlay="false"
                     app:showFullScreenButton="true" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="HR Analytics and How to Get Started"
+                    android:text="A Day In The Life Of A Software Engineer At Microsoft | Expectation vs Reality"
                     android:textSize="16sp"
                     android:paddingTop="10dp"
                     android:paddingLeft="10dp"
@@ -147,14 +147,14 @@
                     android:id="@+id/youtube_player_view5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:videoId="XLIaJEfbNI0"
+                    app:videoId="2M4Ry2pkBl4"
                     app:autoPlay="false"
                     app:showFullScreenButton="true" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="HR Analytics and How to Get Started"
+                    android:text="Day in the life of a mechanical engineer"
                     android:textSize="16sp"
                     android:paddingTop="10dp"
                     android:paddingLeft="10dp"
@@ -176,14 +176,14 @@
                     android:id="@+id/youtube_player_view6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:videoId="XLIaJEfbNI0"
+                    app:videoId="rPngocdIM7w"
                     app:autoPlay="false"
                     app:showFullScreenButton="true" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="HR Analytics and How to Get Started"
+                    android:text="A Day in The Life of a Business Student"
                     android:textSize="16sp"
                     android:paddingTop="10dp"
                     android:paddingLeft="10dp"
@@ -205,14 +205,14 @@
                     android:id="@+id/youtube_player_view7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:videoId="XLIaJEfbNI0"
+                    app:videoId="a1aG-gxo350"
                     app:autoPlay="false"
                     app:showFullScreenButton="true" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="HR Analytics and How to Get Started"
+                    android:text="A Day in the Life of a College Art Student"
                     android:textSize="16sp"
                     android:paddingTop="10dp"
                     android:paddingLeft="10dp"
@@ -220,7 +220,150 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#DFDFDE"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:paddingBottom="10dp">
 
+                <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                    android:id="@+id/youtube_player_view8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:videoId="ishqvPl3LEo"
+                    app:autoPlay="false"
+                    app:showFullScreenButton="true" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="A Day in The Life as an Airline Pilot - A320 MOTIVATION [HD]"
+                    android:textSize="16sp"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#DFDFDE"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:paddingBottom="10dp">
+
+                <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                    android:id="@+id/youtube_player_view9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:videoId="mwbekuQSJWc"
+                    app:autoPlay="false"
+                    app:showFullScreenButton="true" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="A Day In The Life Of A Civil Structural Engineer"
+                    android:textSize="16sp"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#DFDFDE"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:paddingBottom="10dp">
+
+                <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                    android:id="@+id/youtube_player_view10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:videoId="qpZbRUEE_Dc"
+                    app:autoPlay="false"
+                    app:showFullScreenButton="true" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Day In The Life of a Network Analyst | NOC"
+                    android:textSize="16sp"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#DFDFDE"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:paddingBottom="10dp">
+
+                <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                    android:id="@+id/youtube_player_view11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:videoId="bVCrzoIVudU"
+                    app:autoPlay="false"
+                    app:showFullScreenButton="true" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Day in the Life of a DATA SCIENTIST *wfh edition*"
+                    android:textSize="16sp"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#DFDFDE"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:paddingBottom="10dp">
+
+                <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                    android:id="@+id/youtube_player_view12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:videoId="EMsLmJihgYA"
+                    app:autoPlay="false"
+                    app:showFullScreenButton="true" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="A Day in the Life of - Local Historian"
+                    android:textSize="16sp"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"/>
+
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
